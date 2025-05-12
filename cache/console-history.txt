@@ -1,0 +1,50 @@
+console.log("buyer balance:", bal.toString())
+const bal  = await token.balanceOf(buyer.address)
+console.log("tokensSold:", sold.toString())
+const sold = await sale.tokensSold()
+console.log("Bought 10 tokens")
+await sale.connect(buyer).buy(amount, { value: cost })
+const cost = ethers.utils.parseEther("50")
+const amount = 10
+const sale  = await ethers.getContractAt("TokenSale",    saleAddr)
+const token = await ethers.getContractAt("Group12Token", tokenAddr)
+const saleAddr  = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+const tokenAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const [owner, buyer] = await ethers.getSigners()
+console.log("Deployer:", deployer.address, "Buyer:", buyer.address);
+onsole.log("Deployer:", deployer.address, "Buyer:", buyer.address);
+const [deployer, buyer] = await ethers.getSigners();
+const { ethers, network, run } = require("hardhat");
+clear
+// 1. Lấy owner và buyerconst [owner, buyer] = await ethers.getSigners()// 2. Gán token và sale bằng đúng địa chỉ của bạnconst tokenAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3"const saleAddr  = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"const token = await ethers.getContractAt("Group12Token", tokenAddr)const sale  = await ethers.getContractstconst amount = 10                                // 10 token (hợp đồng tính đơn vị nguyên)const cost   = ethers.utils.parseEther("50")     // 10 * 5 ETH = 50 ETH// 4. Mua tokenawait sale.connect(buyer).buy(amount, { value: cost })console.log("Bought 10 tokens")// 5. Kiểm tra kết quảconst sold = await sale.tokensSold()console.log("tokensSold:", sold.toString())      // mong đợi "10"const bal  = await token.balanceOf(buyer.address)console.log("buyer balance:", bal.toString())    // mong đợi "10"
+const sold = await sale.tokensSold();console.log("tokensSold:", sold.toString());      // "10"const bal  = await token.balanceOf(buyer.address);console.log("buyer balance:", bal.toString());    // "10"  (lưu ý đây là 10 *wei* token)
+// 1. Đặt amount là 10 (nguyên token)const amount = 10;// 2. Tính cost = 10 * 5 ETH = 50 ETHconst cost = ethers.utils.parseEther("50");// 3. Gửi txawait sale.connect(buyer).buy(amount, { value: cost });console.log("Bought 10 tokens");
+await sale.connect(buyer).buy(amount, { value: cost });
+const amount = ethers.utils.parseUnits("10", 18);            // 10 tokenconst cost   = ethers.utils.parseEther("50");               // 10 * 5 ETH// Kết nối với buyer để gửi tx muaawait sale.connect(buyer).buy(amount, { value: cost });console.log("Bought 10 tokens");
+await sale.connect(buyer).buy(amount, { value: cost });
+const cost   = ethers.utils.parseEther("50");   
+const amount = ethers.utils.parseUnits("10", 18);
+const sale  = await ethers.getContractAt("TokenSale",    saleAddr);
+const token = await ethers.getContractAt("Group12Token", tokenAddr);
+const saleAddr  = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";  
+const tokenAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+console.log("Bought 10 tokens");
+await sale.connect(buyer).buy(amount, { value: cost });
+const cost   = ethers.utils.parseEther("50");   
+const amount = ethers.utils.parseUnits("10", 18);
+const sale  = await ethers.getContractAt("TokenSale",    saleAddr);
+const token = await ethers.getContractAt("Group12Token", tokenAddr);
+const saleAddr  = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";  
+const tokenAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const [owner, buyer] = await ethers.getSigners();
+.editor
+const [owner, buyer] = await ethers.getSigners();
+const sale  = await ethers.getContractAt("TokenSale",    saleAddr);
+const token = await ethers.getContractAt("Group12Token", tokenAddr);
+const saleAddr  = "0xABCD…";  
+// Thay bằng địa chỉ sale contract của em
+const tokenAddr = "0x1234…";  
+// Thay bằng địa chỉ token contract của em
+const [owner, buyer] = await ethers.getSigners();
+.editor
+const [owner, buyer] = await ethers.getSigners();
