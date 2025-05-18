@@ -1,4 +1,16 @@
 console.log("buyer balance:", bal.toString())
+const bal = await token.balanceOf(buyer.address)
+console.log("tokensSold:", sold.toString())
+const sold = await sale.tokensSold()
+await sale.connect(buyer).buy(amount, { value: cost })
+const cost = ethers.utils.parseEther("50")
+const amount = 10
+const sale  = await ethers.getContractAt("TokenSale",    saleAddr)
+const token = await ethers.getContractAt("Group12Token", tokenAddr)
+const saleAddr  = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+const tokenAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const [owner, buyer] = await ethers.getSigners()
+console.log("buyer balance:", bal.toString())
 const bal  = await token.balanceOf(buyer.address)
 console.log("tokensSold:", sold.toString())
 const sold = await sale.tokensSold()
