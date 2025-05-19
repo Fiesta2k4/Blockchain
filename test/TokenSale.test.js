@@ -1,5 +1,7 @@
+
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
+
 
 describe("TokenSale Pricing Tests", function () {
   let token, sale, owner, buyer1;
@@ -80,6 +82,25 @@ describe("TokenSale Pricing Tests", function () {
     ).to.equal(total.toString());
   });
 
+
+it("Mua 25 token ở tranche 1 và 5 token ở tranche 2 trong 2 giao dịch", async function () {
+  // Mua 25 token đầu giá 5 ETH
+  const amount1 = ethers.utils.parseUnits("25", 18);
+  const cost1 = getCost(ethers.BigNumber.from(0), amount1);
+  await sale.connect(buyer1).buy(amount1, { value: cost1 });
+
+  // Mua tiếp 5 token giá 10 ETH
+  const amount2 = ethers.utils.parseUnits("5", 18);
+  const cost2 = getCost(amount1, amount2);
+  await sale.connect(buyer1).buy(amount2, { value: cost2 });
+
+  const total = amount1.add(amount2);
+  expect((await sale.tokensSold()).toString()).to.equal(total.toString());
+  expect(
+    (await token.balanceOf(buyer1.address)).toString()
+  ).to.equal(total.toString());
+});
+
   it("Không thể mua vượt 50% supply", async function () {
     // Bán đúng 50 = 25@5 + 25@10
     const amount1 = ethers.utils.parseUnits("25", 18);
@@ -102,4 +123,6 @@ describe("TokenSale Pricing Tests", function () {
     }
     expect(reverted).to.be.true;
   });
+
+
 });
